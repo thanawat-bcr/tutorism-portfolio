@@ -1,5 +1,12 @@
 import css from 'styled-jsx/css';
 export default css`
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   .container {
     max-width: 1196px;
     min-height: 100vh;
@@ -289,6 +296,12 @@ export default css`
     bottom: 0;
   }
   .right-0 {
+    right: 0;
+  }
+  .inset-0 {
+    top: 0;
+    left: 0;
+    bottom: 0;
     right: 0;
   }
   .z-1 {
