@@ -8,7 +8,10 @@ const General = (props) => {
       <Header></Header>
       <div className='w-screen h-screen bg-screen fixed inset-0 z-10'>
         <Sidenav></Sidenav>
-        <div style={{ marginLeft: '6rem', marginTop: '2rem' }}>
+        <div
+          style={{ marginLeft: '10rem' }}
+          className='h-full w-full flex flex-col justify-center'
+        >
           <main>{props.children}</main>
         </div>
       </div>

@@ -20,6 +20,9 @@ export default css`
   }
 
   /* Text Size */
+  .text-header {
+    font-size: 4rem;
+  }
   .text-xl {
     font-size: 1.35rem;
   }
