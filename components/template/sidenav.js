@@ -33,7 +33,7 @@ const Sidenav = () => {
     <Fragment>
       <div className='h-screen w-sidenav bg-navbar fixed top-0 flex flex-col items-center justify-center'>
         <Link href={routeName.home}>
-          <div className='sidenav-logo bg-navbar-logo fixed top-0 left-0 flex justify-center items-center text-xl font-black pointer'>
+          <div className='sidenav-logo bg-navbar-logo fixed top-0 left-0 flex justify-center items-center text-body font-black pointer'>
             <div>T</div>
           </div>
         </Link>
@@ -93,7 +93,7 @@ const Sidenav = () => {
             </div>
           </Link>
         </div>
-        <div className='w-sidenav fixed bottom-75 left-0 flex flex-col justify-center items-center text-xl'>
+        <div className='w-sidenav fixed bottom-75 left-0 flex flex-col justify-center items-center text-body'>
           <div
             className='social-size pointer'
             color={COLORS.secondary}

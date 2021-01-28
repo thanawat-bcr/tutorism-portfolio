@@ -23,7 +23,7 @@ export default css`
   .text-header {
     font-size: 4rem;
   }
-  .text-xl {
+  .text-body {
     font-size: 1.35rem;
   }
   .text-lg {
@@ -35,6 +35,9 @@ export default css`
   .text-sm {
     font-size: 0.75rem;
   }
+  .text-xs {
+    font-size: 0.5rem;
+  }
 
   /* Font Weight */
   .font-black {
@@ -42,6 +45,9 @@ export default css`
   }
   .font-bold {
     font-weight: 700;
+  }
+  .font-thick {
+    font-weight: 500;
   }
   .font-normal {
     font-weight: 400;
@@ -73,6 +79,9 @@ export default css`
   }
   .bg-navbar-logo {
     background-color: #eeeeee;
+  }
+  .bg-contrast {
+    background-color: #ff88cc;
   }
 
   /* Text Style */
@@ -148,6 +157,12 @@ export default css`
   }
   .w-screen {
     width: 100vw;
+  }
+  .w-50 {
+    width: 50%;
+  }
+  .w-auto {
+    width: auto;
   }
   .h-full {
     height: 100%;

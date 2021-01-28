@@ -9,8 +9,8 @@ const AboutMe = (props) => {
           About <span className='text-contrast'>Me</span>
         </div>
         <div
-          className='text-lg font-light'
-          style={{ width: '35%', textIndent: '3rem', textAlign: 'justify' }}
+          className='text-lg font-light my-4'
+          style={{ width: '45%', textIndent: '3rem', textAlign: 'justify' }}
         >
           I'm a{' '}
           <span className='font-bold text-contrast'>frontend developer</span>{' '}

@@ -12,7 +12,7 @@ const Home = () => {
             I'm <span className='text-contrast'>Tutorism.</span>
           </div>
         </div>
-        <div className='text-xl spacing-sm text-secondary font-light'>
+        <div className='text-body spacing-sm text-secondary font-light'>
           Freelancer Developer with a passion.
         </div>
       </General>
