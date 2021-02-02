@@ -64,16 +64,41 @@ const works = [
         desc: 'Landing Page',
       },
       {
-        img: 'home',
-        desc: 'Homepage',
+        img: 'student-list',
+        desc: "Student's Appointments",
       },
       {
-        img: 'register',
-        desc: 'Registration page',
+        img: 'student-select',
+        desc: 'Instructors list',
       },
       {
-        img: 'login',
-        desc: 'Login page',
+        img: 'student-appoint',
+        desc: 'Appointing page',
+      },
+      {
+        img: 'student-rating',
+        desc: 'Rating page',
+      },
+
+      {
+        img: 'instructor-timeslots',
+        desc: "Instructor's timeslots",
+      },
+      {
+        img: 'instructor-edit',
+        desc: 'Edting timeslots',
+      },
+      {
+        img: 'instructor-updated',
+        desc: 'Updated timeslots',
+      },
+      {
+        img: 'instructor-list',
+        desc: "Instructor's pending appointments",
+      },
+      {
+        img: 'instructor-approve',
+        desc: 'Approve or Reject',
       },
     ],
   },
@@ -93,16 +118,20 @@ const works = [
         desc: 'Landing Page',
       },
       {
-        img: 'home',
-        desc: 'Homepage',
+        img: 'register-1',
+        desc: 'Registration page',
       },
       {
-        img: 'register',
+        img: 'register-2',
         desc: 'Registration page',
       },
       {
         img: 'login',
         desc: 'Login page',
+      },
+      {
+        img: 'home',
+        desc: 'Homepage',
       },
     ],
   },
