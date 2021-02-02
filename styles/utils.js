@@ -97,6 +97,9 @@ export default css`
   .text-center {
     text-align: center;
   }
+  .line-height-sm {
+    line-height: 1.6;
+  }
 
   /* Opacity */
   .opacity-80 {

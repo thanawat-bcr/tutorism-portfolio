@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 
 const Skills = (props) => {
-  // missing icons: nextjs, dart, flutter, vscode, ps, ai
   const skills = [
     {
       title: {
