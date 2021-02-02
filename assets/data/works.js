@@ -15,16 +15,36 @@ const works = [
         desc: 'Landing Page',
       },
       {
-        img: 'home',
-        desc: 'Homepage',
-      },
-      {
         img: 'register',
         desc: 'Registration page',
       },
       {
         img: 'login',
         desc: 'Login page',
+      },
+      {
+        img: 'home',
+        desc: 'Homepage',
+      },
+      {
+        img: 'shop',
+        desc: 'Marketpalce',
+      },
+      {
+        img: 'cart',
+        desc: 'Shopping Cart',
+      },
+      {
+        img: 'course',
+        desc: 'Course List',
+      },
+      {
+        img: 'player',
+        desc: 'Video player',
+      },
+      {
+        img: 'map',
+        desc: 'Institute map',
       },
     ],
   },

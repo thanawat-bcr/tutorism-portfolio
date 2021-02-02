@@ -107,6 +107,27 @@ const Works = (props) => {
               </span>
             </div>
           </div>
+          <div className='slider' style={{ width: 'calc(100% - 25rem)' }}>
+            <div className='flex-container'>
+              {work.slides.map((slide, index) => (
+                <div>
+                  <div className='flex-item'>
+                    <Image
+                      src={work.path + slide.img + '.png'}
+                      layout='fill'
+                      objectFit='contain'
+                    />
+                  </div>
+                  <div
+                    style={{ textAlign: 'center' }}
+                    className='font-light text-md text-secondary'
+                  >
+                    {slide.desc}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </General>
       <style jsx>{utils}</style>
@@ -130,6 +151,28 @@ const Works = (props) => {
         }
         .text-subheader {
           font-size: 3rem;
+        }
+
+        .slider {
+          overflow-x: auto;
+          margin-left: 2rem;
+        }
+        .slider .flex-container {
+          list-style: none;
+          padding: 1rem;
+          display: inline-flex;
+          height: 100%;
+        }
+        .slider .flex-container .flex-item {
+          width: 35rem;
+          height: 90%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+        }
+        .slider .flex-container .flex-item.flex-item:not(:last-of-type) {
+          margin-right: 1rem;
         }
       `}</style>
     </Fragment>
