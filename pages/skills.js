@@ -92,15 +92,15 @@ const Skills = (props) => {
             </div>
           </div>
           <div className='flex flex-col' style={{ width: '45%' }}>
-            {skills.map((s) => (
-              <div className='my-4'>
+            {skills.map((s, i) => (
+              <div className='my-4' key={i}>
                 <div className='text-body font-thick text-secondary'>
                   <span className='text-contrast'>{s.title.head}</span>{' '}
                   {s.title.body}
                 </div>
                 <div className='flex'>
-                  {s.icons.map((i) => (
-                    <div className=' flex flex-col items-center'>
+                  {s.icons.map((i, index) => (
+                    <div className=' flex flex-col items-center' key={index}>
                       <div className='icon-size pointer'>
                         {i.icon ? (
                           <FontAwesomeIcon icon={['fab', i.icon]} />

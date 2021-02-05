@@ -72,9 +72,7 @@ const Works = (props) => {
                   </div>
                 ))}
                 {[...Array(16 - works.length)].map((i, index) => (
-                  <div className='box dashed' key={index}>
-                    {}
-                  </div>
+                  <div className='box dashed' key={index}></div>
                 ))}
               </div>
               <div
@@ -128,7 +126,10 @@ const Works = (props) => {
             >
               <div className='flex-container'>
                 {work.slides.map((slide, index) => (
-                  <div style={{ width: 'calc((100vw - 25rem) * 0.5)' }}>
+                  <div
+                    style={{ width: 'calc((100vw - 25rem) * 0.5)' }}
+                    key={index}
+                  >
                     <div
                       className='flex-item pointer'
                       onClick={() => {
