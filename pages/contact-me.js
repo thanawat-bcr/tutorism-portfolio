@@ -3,7 +3,7 @@ import utils from '../styles/utils';
 import General from '../components/layouts/general';
 import dynamic from 'next/dynamic';
 
-const DynamicComponentWithNoSSR = dynamic(() => import('../components/Map'), {
+const DynamicComponentWithNoSSR = dynamic(() => import('../components/map'), {
   ssr: false,
 });
 
