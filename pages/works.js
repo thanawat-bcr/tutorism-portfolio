@@ -9,6 +9,7 @@ const Works = (props) => {
   const pageLength = Math.ceil(worksData.length / 16);
   const [works, setWorks] = useState(worksData.slice(page, page + 16));
   const [work, setWork] = useState(works[0]);
+  const [fullImage, setFullImage] = useState(null);
   const COLORS = {
     secondary: '#444444',
     contrast: '#ff88cc',
@@ -128,7 +129,12 @@ const Works = (props) => {
               <div className='flex-container'>
                 {work.slides.map((slide, index) => (
                   <div style={{ width: 'calc((100vw - 25rem) * 0.5)' }}>
-                    <div className='flex-item'>
+                    <div
+                      className='flex-item pointer'
+                      onClick={() => {
+                        setFullImage(slide.img);
+                      }}
+                    >
                       <div
                         style={{
                           backgroundImage: `url('${imgPath(
@@ -153,6 +159,25 @@ const Works = (props) => {
                 ))}
               </div>
             </div>
+            {fullImage ? (
+              <div
+                className='fixed inset-0 bg-modal flex justify-center items-center'
+                onClick={() => {
+                  setFullImage(null);
+                }}
+              >
+                <div
+                  style={{
+                    width: '80vw',
+                    height: '100vh',
+                    backgroundImage: `url('${imgPath(work.path, fullImage)}')`,
+                    backgroundSize: 'contain',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                  }}
+                ></div>
+              </div>
+            ) : null}
           </div>
         </div>
       </General>
@@ -199,6 +224,9 @@ const Works = (props) => {
         }
         .slider .flex-container .flex-item.flex-item:not(:last-of-type) {
           margin-right: 1rem;
+        }
+        .bg-modal {
+          background-color: rgba(10, 10, 10, 0.2);
         }
       `}</style>
     </Fragment>
