@@ -54,12 +54,6 @@ const Works = (props) => {
                       setWork(work);
                     }}
                   >
-                    {/* <Image
-                    src={'' + work.path + work.logo + '.png'}
-                    alt={work.title.head + work.title.body}
-                    width='104'
-                    height='104'
-                  /> */}
                     <div
                       className='box'
                       style={{
@@ -69,6 +63,9 @@ const Works = (props) => {
                         )}')`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
+                      }}
+                      onClick={() => {
+                        document.getElementById('slider').scrollLeft = 0;
                       }}
                     ></div>
                   </div>
@@ -123,7 +120,11 @@ const Works = (props) => {
                 </span>
               </div>
             </div>
-            <div className='slider' style={{ width: 'calc(100% - 25rem)' }}>
+            <div
+              className='slider'
+              id='slider'
+              style={{ width: 'calc(100% - 25rem)' }}
+            >
               <div className='flex-container'>
                 {work.slides.map((slide, index) => (
                   <div style={{ width: 'calc((100vw - 25rem) * 0.5)' }}>
