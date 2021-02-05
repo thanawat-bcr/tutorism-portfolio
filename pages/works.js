@@ -24,7 +24,7 @@ const Works = (props) => {
         <div className='flex flex-col justify-even h-screen'>
           <div
             className='flex flex-col justify-center'
-            style={{ height: '45vh' }}
+            style={{ height: '40vh' }}
           >
             <div className='font-bold text-header text-secondary'>
               My <span className='text-contrast'>Works</span>
