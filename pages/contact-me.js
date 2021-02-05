@@ -2,30 +2,7 @@ import { Fragment } from 'react';
 import utils from '../styles/utils';
 import General from '../components/layouts/general';
 
-import emailjs from 'emailjs-com';
 const ContactMe = (props) => {
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    location.reload();
-    return;
-    emailjs
-      .sendForm(
-        'service_yqolhpl',
-        'template_b5b8v9h',
-        e.target,
-        'user_gCpX2dJ1OEUPYW19uDQrP'
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          location.reload();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
   return (
     <Fragment>
       <General>
