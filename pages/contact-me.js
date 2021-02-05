@@ -1,6 +1,11 @@
 import { Fragment } from 'react';
 import utils from '../styles/utils';
 import General from '../components/layouts/general';
+import dynamic from 'next/dynamic';
+
+const DynamicComponentWithNoSSR = dynamic(() => import('../components/Map'), {
+  ssr: false,
+});
 
 const ContactMe = (props) => {
   return (
@@ -28,6 +33,9 @@ const ContactMe = (props) => {
             </a>
           </div>
         </div>
+        <div className='fixed map-pos'>
+          <DynamicComponentWithNoSSR />
+        </div>
       </General>
       <style jsx>{utils}</style>
       <style jsx>{`
@@ -39,6 +47,12 @@ const ContactMe = (props) => {
           font-size: 1rem;
           display: inline-block;
           padding: 0.5rem 2rem;
+        }
+        .map-pos {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 45%;
         }
       `}</style>
     </Fragment>
