@@ -24,16 +24,32 @@ class Map extends Component {
       >
         <Marker latitude={13.7279488} longitude={100.4470233}>
           <div
-            className=' pointer'
+            className='marker'
             style={{
               width: '1.5rem',
               height: '1.5rem',
               margin: '2rem 0.5rem',
             }}
           >
+            <div className='tooltips'>Bangkok, Thailand</div>
             <FontAwesomeIcon icon={faMapMarkerAlt} color='#ff88cc' />
           </div>
         </Marker>
+        <style jsx>{`
+          .marker {
+            cursor: pointer;
+            position: relative;
+          }
+          .tooltips {
+            background-color: white;
+            border-radius: 10px;
+            padding: 0.5rem 2rem;
+            width: 10rem;
+            text-align: center;
+            position: absolute;
+            top: -2.5rem;
+          }
+        `}</style>
       </ReactMapGL>
     );
   }
