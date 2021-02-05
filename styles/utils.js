@@ -147,6 +147,9 @@ export default css`
   .justify-between {
     justify-content: space-between;
   }
+  .justify-even {
+    justify-content: space-evenly;
+  }
   .items-center {
     align-items: center;
   }
