@@ -33,7 +33,7 @@ const Uppernav = () => {
     secondary: '#444444',
     contrast: '#ff88cc',
   };
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(true);
   return (
     <Fragment>
       <div className='w-screen h-sidenav bg-navbar flex justify-between'>
@@ -42,10 +42,7 @@ const Uppernav = () => {
             <div>T</div>
           </div>
         </Link>
-        <div
-          style={{ overflowX: 'hidden' }}
-          className={`relative flex items-center `}
-        >
+        <div className={` flex items-center `}>
           <CSSTransition
             mountOnEnter
             unmountOnExit
@@ -53,7 +50,11 @@ const Uppernav = () => {
             timeout={{ enter: 600, exit: 600 }}
             classNames={{ enterActive: 'menu-open', exitActive: 'menu-close' }}
           >
-            <div id='menu-set' className='flex justify-center items-center'>
+            <div
+              id='menu-set'
+              className='flex justify-center items-center fixed'
+              style={{ top: '1.5rem', right: '4rem' }}
+            >
               <Link href={routeName.home}>
                 <div className='icon-size pointer'>
                   <FontAwesomeIcon
@@ -117,7 +118,7 @@ const Uppernav = () => {
             </div>
           </CSSTransition>
         </div>
-        <div className='sidenav-logo flex justify-center items-center text-body font-black'>
+        <div className='sidenav-logo flex justify-center items-center text-body font-black bg-screen z-1'>
           <div
             className='menu-size pointer'
             onClick={() => setToggleMenu(!toggleMenu)}
@@ -140,7 +141,7 @@ const Uppernav = () => {
         >
           <div
             className='w-sidenav flex flex-col bg-screen justify-center items-center text-body fixed'
-            style={{ top: '5rem', right: '1rem', zIndex: '-1' }}
+            style={{ top: '4rem', right: '1rem', zIndex: '-1' }}
           >
             <div
               className='social-size pointer'
