@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import utils from '../styles/utils';
 import General from '../components/layouts/general';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,6 +18,30 @@ const Works = (props) => {
   const imgPath = (path, img) => {
     return `https://cdn.jsdelivr.net/gh/thanawat-bcr/tutorism-portfolio-resources/${path}/${img}.png`;
   };
+
+  useEffect(() => {
+    function scrollHorizontally(e) {
+      e = window.event || e;
+      var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+      document.getElementById('slider').scrollLeft += delta * 20; // Multiplied by 40
+      e.preventDefault();
+    }
+    if (document.getElementById('slider').addEventListener) {
+      // IE9, Chrome, Safari, Opera
+      document
+        .getElementById('slider')
+        .addEventListener('mousewheel', scrollHorizontally, false);
+      // Firefox
+      document
+        .getElementById('slider')
+        .addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    } else {
+      // IE 6/7/8
+      document
+        .getElementById('slider')
+        .attachEvent('onmousewheel', scrollHorizontally);
+    }
+  });
   return (
     <Fragment>
       <General>
