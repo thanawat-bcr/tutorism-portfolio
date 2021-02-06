@@ -39,6 +39,14 @@ export default css`
     font-size: 0.5rem;
   }
 
+  @media screen and (max-width: 768px) {
+    .text-header {
+      font-size: 3rem;
+    }
+    .text-body {
+      font-size: 1rem;
+    }
+  }
   /* Font Weight */
   .font-black {
     font-weight: 900;
