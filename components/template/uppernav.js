@@ -43,7 +43,7 @@ const Uppernav = () => {
           </div>
         </Link>
         <div
-          style={{ flexGrow: '1' }}
+          style={{ overflowX: 'hidden' }}
           className={`relative flex items-center `}
         >
           <CSSTransition
@@ -183,7 +183,7 @@ const Uppernav = () => {
           padding: 0.5rem;
         }
         #menu-set {
-          transform: translateX(120%);
+          // transform: translateX(120%);
         }
         .menu-open {
           animation: menu-open 600ms ease-in-out forwards;
@@ -193,7 +193,7 @@ const Uppernav = () => {
         }
         @keyframes menu-open {
           from {
-            transform: translateX(120%);
+            transform: translateX(100%);
           }
           to {
             transform: translateX(0%);
@@ -204,7 +204,7 @@ const Uppernav = () => {
             transform: translateX(0%);
           }
           to {
-            transform: translateX(120%);
+            transform: translateX(100%);
           }
         }
       `}</style>
