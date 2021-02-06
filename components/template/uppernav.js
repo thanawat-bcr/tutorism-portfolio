@@ -128,36 +128,51 @@ const Uppernav = () => {
             />
           </div>
         </div>
-        {/* <div className='w-sidenav flex justify-center items-center text-body'>
+        <CSSTransition
+          mountOnEnter
+          unmountOnExit
+          in={toggleMenu}
+          timeout={{ enter: 600, exit: 600 }}
+          classNames={{
+            enterActive: 'social-open',
+            exitActive: 'social-close',
+          }}
+        >
           <div
-            className='social-size pointer'
-            color={COLORS.secondary}
-            onClick={() => {
-              window.open('https://github.com/thanawat-bcr');
-            }}
+            className='w-sidenav flex flex-col bg-screen justify-center items-center text-body fixed'
+            style={{ top: '5rem', right: '1rem', zIndex: '-1' }}
           >
-            <FontAwesomeIcon icon={['fab', 'github']} />
+            <div
+              className='social-size pointer'
+              color={COLORS.secondary}
+              onClick={() => {
+                window.open('https://github.com/thanawat-bcr');
+              }}
+            >
+              <FontAwesomeIcon icon={['fab', 'github']} />
+            </div>
+            <div
+              className='social-size pointer'
+              color={COLORS.secondary}
+              onClick={() => {
+                window.open('https://www.facebook.com/tutor34676/');
+              }}
+            >
+              <FontAwesomeIcon icon={['fab', 'facebook']} />
+            </div>
+            <div
+              className='social-size pointer'
+              color={COLORS.secondary}
+              onClick={() => {
+                window.open('https://www.instagram.com/_tutorism/');
+              }}
+            >
+              <FontAwesomeIcon icon={['fab', 'instagram']} />
+            </div>
           </div>
-          <div
-            className='social-size pointer'
-            color={COLORS.secondary}
-            onClick={() => {
-              window.open('https://www.facebook.com/tutor34676/');
-            }}
-          >
-            <FontAwesomeIcon icon={['fab', 'facebook']} />
-          </div>
-          <div
-            className='social-size pointer'
-            color={COLORS.secondary}
-            onClick={() => {
-              window.open('https://www.instagram.com/_tutorism/');
-            }}
-          >
-            <FontAwesomeIcon icon={['fab', 'instagram']} />
-          </div>
-        </div> */}
+        </CSSTransition>
       </div>
+
       <style jsx>{utils}</style>
       <style jsx>{`
         .h-sidenav {
@@ -192,19 +207,61 @@ const Uppernav = () => {
           animation: menu-close 600ms ease-in-out forwards;
         }
         @keyframes menu-open {
-          from {
+          0% {
             transform: translateX(100%);
+            opacity: 0;
           }
-          to {
+          50% {
+            opacity: 0.4;
+          }
+          100% {
             transform: translateX(0%);
+            opacity: 1;
           }
         }
         @keyframes menu-close {
-          from {
+          0% {
             transform: translateX(0%);
+            opacity: 1;
           }
-          to {
+          50% {
+            opacity: 0.4;
+          }
+          100% {
             transform: translateX(100%);
+            opacity: 0;
+          }
+        }
+        .social-open {
+          animation: social-open 600ms ease-in-out forwards;
+        }
+        .social-close {
+          animation: social-close 600ms ease-in-out forwards;
+        }
+        @keyframes social-open {
+          0% {
+            transform: translateY(-100%);
+            opacity: 0;
+          }
+          50% {
+            opacity: 0.4;
+          }
+          100% {
+            transform: translateY(0%);
+            opacity: 1;
+          }
+        }
+        @keyframes social-close {
+          0% {
+            transform: translateY(0%);
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.6;
+          }
+          100% {
+            transform: translateY(-100%);
+            opacity: 0;
           }
         }
       `}</style>
