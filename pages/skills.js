@@ -4,7 +4,10 @@ import General from '../components/layouts/general';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 
+import useWindowSize from '../components/size';
+
 const Skills = (props) => {
+  const size = useWindowSize();
   const skills = [
     {
       title: {
@@ -59,21 +62,26 @@ const Skills = (props) => {
       <General>
         <div className='flex justify-between'>
           <div
-            style={{ width: '45%' }}
-            className='flex flex-col justify-center'
+            className={`flex flex-col justify-center ${
+              size.width > 768 ? 'w-45' : 'w-full'
+            }`}
           >
-            <div className='font-bold text-header text-secondary'>
+            <div className='font-bold text-header text-secondary my-4'>
               My <span className='text-contrast'>Skills</span>
             </div>
             <div
-              className='text-lg font-light my-4'
+              className={`text-lg font-light ${
+                size.width > 768 ? 'my-4' : 'my-2'
+              } `}
               style={{ textIndent: '3rem', textAlign: 'justify' }}
             >
               My main area of expertises are frontend development and mobile
               development.
             </div>
             <div
-              className='text-lg font-light my-4'
+              className={`text-lg font-light ${
+                size.width > 768 ? 'my-4' : 'my-2'
+              } `}
               style={{ textIndent: '3rem', textAlign: 'justify' }}
             >
               {' '}
@@ -83,7 +91,9 @@ const Skills = (props) => {
               development and database system.
             </div>
             <div
-              className='text-lg font-light my-4'
+              className={`text-lg font-light ${
+                size.width > 768 ? 'my-4' : 'my-2'
+              } `}
               style={{ textIndent: '3rem', textAlign: 'justify' }}
             >
               {' '}
@@ -91,38 +101,40 @@ const Skills = (props) => {
               me.
             </div>
           </div>
-          <div className='flex flex-col' style={{ width: '45%' }}>
-            {skills.map((s, i) => (
-              <div className='my-4' key={i}>
-                <div className='text-body font-thick text-secondary'>
-                  <span className='text-contrast'>{s.title.head}</span>{' '}
-                  {s.title.body}
-                </div>
-                <div className='flex'>
-                  {s.icons.map((i, index) => (
-                    <div className=' flex flex-col items-center' key={index}>
-                      <div className='icon-size pointer'>
-                        {i.icon ? (
-                          <FontAwesomeIcon icon={['fab', i.icon]} />
-                        ) : (
-                          <Image
-                            src={`/icons/${i.path}.png`}
-                            alt='me'
-                            width='64'
-                            height='64'
-                          />
-                        )}
-                      </div>
+          {size.width > 768 ? (
+            <div className='flex flex-col' style={{ width: '45%' }}>
+              {skills.map((s, i) => (
+                <div className='my-4' key={i}>
+                  <div className='text-body font-thick text-secondary'>
+                    <span className='text-contrast'>{s.title.head}</span>{' '}
+                    {s.title.body}
+                  </div>
+                  <div className='flex'>
+                    {s.icons.map((i, index) => (
+                      <div className=' flex flex-col items-center' key={index}>
+                        <div className='icon-size pointer'>
+                          {i.icon ? (
+                            <FontAwesomeIcon icon={['fab', i.icon]} />
+                          ) : (
+                            <Image
+                              src={`/icons/${i.path}.png`}
+                              alt='me'
+                              width='64'
+                              height='64'
+                            />
+                          )}
+                        </div>
 
-                      <div className='text-sm font-thin text-secondary'>
-                        {i.title}
+                        <div className='text-sm font-thin text-secondary'>
+                          {i.title}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </General>
       <style jsx>{utils}</style>
@@ -131,6 +143,9 @@ const Skills = (props) => {
           width: 2.125rem;
           height: 2.125rem;
           margin: 1rem 1.5rem;
+        }
+        .w-45 {
+          width: 45%;
         }
       `}</style>
     </Fragment>
