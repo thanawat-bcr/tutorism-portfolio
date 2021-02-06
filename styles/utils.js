@@ -351,4 +351,7 @@ export default css`
   .z-5 {
     z-index: 300;
   }
+  .mt--10 {
+    margin-top: -6rem;
+  }
 `;

@@ -33,7 +33,7 @@ const Uppernav = () => {
     secondary: '#444444',
     contrast: '#ff88cc',
   };
-  const [toggleMenu, setToggleMenu] = useState(true);
+  const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <Fragment>
       <div className='w-screen h-sidenav bg-navbar flex justify-between'>
@@ -186,7 +186,7 @@ const Uppernav = () => {
         .icon-size {
           width: 1.25rem;
           height: 1.25rem;
-          margin: auto 1rem;
+          margin: auto 0.8rem;
         }
         .social-size {
           width: 1rem;

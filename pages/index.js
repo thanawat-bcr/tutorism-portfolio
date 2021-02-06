@@ -2,11 +2,13 @@ import { Fragment } from 'react';
 import General from '../components/layouts/general';
 import utils from '../styles/utils';
 
+import useWindowSize from '../components/size';
 const Home = () => {
+  const size = useWindowSize();
   return (
     <Fragment>
       <General>
-        <div className='text-header font-bold text-primary'>
+        <div className={`text-header font-bold text-primary`}>
           <div>Hey,</div>
           <div>
             I'm <span className='text-contrast'>Tutorism.</span>
