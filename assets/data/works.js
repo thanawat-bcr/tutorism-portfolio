@@ -50,14 +50,6 @@ export const works = [
         desc: 'Landing Page',
       },
       {
-        img: 'register',
-        desc: 'Registration page',
-      },
-      {
-        img: 'login',
-        desc: 'Login page',
-      },
-      {
         img: 'home',
         desc: 'Homepage',
       },
@@ -72,14 +64,6 @@ export const works = [
       {
         img: 'course',
         desc: 'Course List',
-      },
-      {
-        img: 'player',
-        desc: 'Video player',
-      },
-      {
-        img: 'map',
-        desc: 'Institute map',
       },
     ],
   },
@@ -103,37 +87,16 @@ export const works = [
         desc: "Student's Appointments",
       },
       {
-        img: 'student-select',
-        desc: 'Instructors list',
-      },
-      {
         img: 'student-appoint',
         desc: 'Appointing page',
-      },
-      {
-        img: 'student-rating',
-        desc: 'Rating page',
-      },
-
-      {
-        img: 'instructor-timeslots',
-        desc: "Instructor's timeslots",
-      },
-      {
-        img: 'instructor-edit',
-        desc: 'Edting timeslots',
-      },
-      {
-        img: 'instructor-updated',
-        desc: 'Updated timeslots',
       },
       {
         img: 'instructor-list',
         desc: "Instructor's pending appointments",
       },
       {
-        img: 'instructor-approve',
-        desc: 'Approve or Reject',
+        img: 'instructor-timeslots',
+        desc: "Instructor's timeslots",
       },
     ],
   },
