@@ -138,7 +138,7 @@ const Works = (props) => {
                 {work().slides.map((slide, index) => (
                   <label
                     key={index}
-                    for={`s${index + 1}`}
+                    htmlFor={`s${index + 1}`}
                     id={`slide${index + 1}`}
                   >
                     <div
