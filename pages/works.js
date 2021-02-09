@@ -153,7 +153,20 @@ const Works = (props) => {
                         width: '100%',
                         height: '100%',
                       }}
-                    ></div>
+                    >
+                      <span
+                        id={`d${index + 1}`}
+                        style={{
+                          position: 'absolute',
+                          bottom: '0.5rem',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                        }}
+                        className='text-secondary font-light'
+                      >
+                        {slide.desc}
+                      </span>
+                    </div>
                   </label>
                 ))}
               </div>
@@ -208,8 +221,22 @@ const Works = (props) => {
         input[type='radio'] {
           display: none;
         }
+        #d1,
+        #d2,
+        #d3,
+        #d4,
+        #d5 {
+          display: none;
+        }
+        #s1:checked ~ #slide1 #d1,
+        #s2:checked ~ #slide2 #d2,
+        #s3:checked ~ #slide3 #d3,
+        #s4:checked ~ #slide4 #d4,
+        #s5:checked ~ #slide5 #d5 {
+          display: block;
+        }
         #slider {
-          height: 100%;
+          height: 80%;
           position: relative;
           perspective: 1000px;
           transform-style: preserve-3d;
