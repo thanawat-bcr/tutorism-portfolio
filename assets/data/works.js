@@ -1,4 +1,39 @@
-const works = [
+export const index = ['CSB', 'mpstudio', 'Eduroom'];
+
+export const works = [
+  {
+    title: {
+      head: 'CS',
+      body: 'Banking',
+    },
+    desc:
+      'This is my first year web development project, our goal is to simulate the banking website features. I take care of authentication and merging every features from my classmates to be one project ',
+    stacks: ['VueJs', 'Vuetify', 'Servlets', 'JDBC', 'MSSQL'],
+    path: 'CSB',
+    logo: 'logo',
+    slides: [
+      {
+        img: 'landing',
+        desc: 'Landing Page',
+      },
+      {
+        img: 'register-1',
+        desc: 'Registration page',
+      },
+      {
+        img: 'register-2',
+        desc: 'Registration page',
+      },
+      {
+        img: 'login',
+        desc: 'Login page',
+      },
+      {
+        img: 'home',
+        desc: 'Homepage',
+      },
+    ],
+  },
   {
     title: {
       head: 'MP',
@@ -102,39 +137,4 @@ const works = [
       },
     ],
   },
-  {
-    title: {
-      head: 'CS',
-      body: 'Banking',
-    },
-    desc:
-      'This is my first year web development project, our goal is to simulate the banking website features. I take care of authentication and merging every features from my classmates to be one project ',
-    stacks: ['VueJs', 'Vuetify', 'Servlets', 'JDBC', 'MSSQL'],
-    path: 'CSB',
-    logo: 'logo',
-    slides: [
-      {
-        img: 'landing',
-        desc: 'Landing Page',
-      },
-      {
-        img: 'register-1',
-        desc: 'Registration page',
-      },
-      {
-        img: 'register-2',
-        desc: 'Registration page',
-      },
-      {
-        img: 'login',
-        desc: 'Login page',
-      },
-      {
-        img: 'home',
-        desc: 'Homepage',
-      },
-    ],
-  },
 ];
-
-export default works;

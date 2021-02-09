@@ -3,13 +3,8 @@ import utils from '../styles/utils';
 import General from '../components/layouts/general';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons';
-import worksData from '../assets/data/works';
+import { works } from '../assets/data/works';
 const Works = (props) => {
-  const [page, setPage] = useState(0);
-  const pageLength = Math.ceil(worksData.length / 16);
-  const [works, setWorks] = useState(worksData.slice(page, page + 16));
-  const [work, setWork] = useState(works[0]);
-  const [fullImage, setFullImage] = useState(null);
   const COLORS = {
     secondary: '#444444',
     contrast: '#ff88cc',
@@ -18,240 +13,150 @@ const Works = (props) => {
   const imgPath = (path, img) => {
     return `https://cdn.jsdelivr.net/gh/thanawat-bcr/tutorism-portfolio-resources/${path}/${img}.png`;
   };
-
-  useEffect(() => {
-    function scrollHorizontally(e) {
-      e = window.event || e;
-      var delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-      document.getElementById('slider').scrollLeft += delta * 20; // Multiplied by 40
-      e.preventDefault();
-    }
-    if (document.getElementById('slider').addEventListener) {
-      // IE9, Chrome, Safari, Opera
-      document
-        .getElementById('slider')
-        .addEventListener('mousewheel', scrollHorizontally, false);
-      // Firefox
-      document
-        .getElementById('slider')
-        .addEventListener('DOMMouseScroll', scrollHorizontally, false);
-    } else {
-      // IE 6/7/8
-      document
-        .getElementById('slider')
-        .attachEvent('onmousewheel', scrollHorizontally);
-    }
-  });
+  const [workIndex, setWorkIndex] = useState(0);
+  const work = () => {
+    return works[workIndex];
+  };
   return (
     <Fragment>
       <General>
-        <div className='flex flex-col justify-even h-screen'>
-          <div
-            className='flex flex-col justify-center'
-            style={{ height: '40vh' }}
-          >
-            <div className='font-bold text-header text-secondary'>
-              My <span className='text-contrast'>Works</span>
-            </div>
-            <div className='flex items-center w-full my-4'>
-              <div
-                className={`icon-size ${
-                  page > 0 ? 'pointer' : ''
-                } flex items-center`}
-                onClick={() => {
-                  if (page < 1) return;
-                  const index = (page - 1) * 16;
-                  setPage(page - 1);
-                  setWorks(worksData.slice(index, index + 16));
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={faCaretLeft}
-                  color={page > 0 ? COLORS.secondary : COLORS.white}
-                />
-              </div>
-              <div className='grid-8-2 mx-8'>
-                {works.map((work, index) => (
-                  <div
-                    key={index}
-                    className='box pointer '
-                    onClick={() => {
-                      setWork(work);
-                    }}
-                  >
-                    <div
-                      className='box'
-                      style={{
-                        backgroundImage: `url('${imgPath(
-                          work.path,
-                          work.logo
-                        )}')`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                      }}
-                      onClick={() => {
-                        document.getElementById('slider').scrollLeft = 0;
-                      }}
-                    ></div>
-                  </div>
-                ))}
-                {[...Array(16 - works.length)].map((i, index) => (
-                  <div className='box dashed' key={index}></div>
-                ))}
-              </div>
-              <div
-                className={`icon-size ${
-                  page < pageLength - 1 ? 'pointer' : ''
-                } flex items-center`}
-                onClick={() => {
-                  if (page >= pageLength - 1) return;
-                  const index = (page + 1) * 16;
-                  setPage(page + 1);
-                  setWorks(worksData.slice(index, index + 16));
-                }}
-              >
-                <FontAwesomeIcon
-                  icon={faCaretRight}
-                  color={
-                    page < pageLength - 1 ? COLORS.secondary : COLORS.white
-                  }
-                />
-              </div>
-            </div>
+        <div className='flex flex-col justify-even'>
+          <div className='font-bold text-header text-secondary my-8'>
+            My <span className='text-contrast'>Works</span>
           </div>
-          <div className='flex' style={{ height: '45vh' }}>
-            <div style={{ width: '25rem' }}>
-              <div className='text-subheader font-thick text-secondary'>
-                {work.title.head}
-                <span className='text-contrast'>{work.title.body}</span>
-              </div>
-              <div
-                className='text-md font-light my-4 line-height-sm '
-                style={{ textIndent: '3rem', textAlign: 'justify' }}
-              >
-                {work.desc}
-              </div>
-              <div className='text-lg font-thick text-contrast'>
-                Stack:{' '}
-                <span className='text-md font-light text-secondary'>
-                  {work.stacks.map((st, i) => (
-                    <span key={i}>
-                      {st}
-                      {i < work.stacks.length - 1 ? ', ' : ''}
-                    </span>
-                  ))}
-                </span>
-              </div>
-            </div>
+          <div style={{ height: '75vh' }} className='flex'>
             <div
-              className='slider'
-              id='slider'
-              style={{ width: 'calc(100% - 25rem)' }}
+              className='h-full scroll-container flex flex-col items-center shadow'
+              style={{
+                flex: '0 0 7rem',
+                borderRadius: '20px',
+                marginLeft: '1rem',
+                marginRight: '4rem',
+                paddingTop: '1rem',
+                overflowY: 'hidden',
+                // overflowY: 'auto',
+              }}
             >
-              <div className='flex-container'>
-                {work.slides.map((slide, index) => (
+              {works.map((work, index) => (
+                <div
+                  key={index}
+                  style={{
+                    width: '5rem',
+                    height: '5rem',
+                    border: '5px solid #E5E5E5',
+                    borderRadius: '50%',
+                    marginBottom: '5rem',
+                  }}
+                  className='relative'
+                >
                   <div
-                    style={{ width: 'calc((100vw - 25rem) * 0.5)' }}
-                    key={index}
-                  >
-                    <div
-                      className='flex-item pointer'
-                      onClick={() => {
-                        setFullImage(slide.img);
-                      }}
-                    >
-                      <div
-                        style={{
-                          backgroundImage: `url('${imgPath(
-                            work.path,
-                            slide.img
-                          )}')`,
-                          backgroundSize: 'contain',
-                          backgroundPosition: 'center',
-                          backgroundRepeat: 'no-repeat',
-                          height: '100%',
-                          width: '100%',
-                        }}
-                      ></div>
-                    </div>
-                    <div
-                      style={{ textAlign: 'center' }}
-                      className='font-light text-md text-secondary'
-                    >
-                      {slide.desc}
-                    </div>
-                  </div>
-                ))}
-              </div>
+                    style={{
+                      backgroundImage: `url('${imgPath(work.path, 'logo')}')`,
+                      backgroundSize: 'contain',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                      borderRadius: '50%',
+                      backgroundColor: 'white',
+                      border: '5px solid white',
+                      height: '100%',
+                      width: '100%',
+                    }}
+                    className={`${
+                      workIndex == index ? '' : 'bw-filter'
+                    } pointer`}
+                    onClick={() => setWorkIndex(index)}
+                  ></div>
+                  <div
+                    className='absolute'
+                    style={{
+                      width: '5px',
+                      height: '100vh',
+                      backgroundColor: '#e5e5e5',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                    }}
+                  ></div>
+                </div>
+              ))}
             </div>
-            {fullImage ? (
+            <div className='flex w-full' style={{ alignItems: 'flex-start' }}>
+              <div className='topic-section'>
+                <div className='flex font-thick text-subheader '>
+                  <div className='text-contrast'>{work().title.head}</div>
+                  <div className='text-secondary'>{work().title.body}</div>
+                </div>
+                <div className='flex text-md'>
+                  <div
+                    className='text-lg font-thick'
+                    style={{ marginRight: '0.5rem' }}
+                  >
+                    Stack:{' '}
+                  </div>
+                  <div>
+                    {work().stacks.map((stack, index) => (
+                      <div key={index} className='my-1 font-light'>
+                        - {stack}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
               <div
-                className='fixed inset-0 bg-modal flex justify-center items-center'
-                onClick={() => {
-                  setFullImage(null);
+                className='text-md font-light my-4 line-height-sm desc-text mx-4'
+                style={{
+                  textIndent: '3rem',
+                  textAlign: 'justify',
                 }}
               >
-                <div
-                  style={{
-                    width: '80vw',
-                    height: '100vh',
-                    backgroundImage: `url('${imgPath(work.path, fullImage)}')`,
-                    backgroundSize: 'contain',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                  }}
-                ></div>
+                {work().desc}
               </div>
-            ) : null}
+            </div>
           </div>
         </div>
       </General>
       <style jsx>{utils}</style>
       <style jsx>{`
-        .box {
-          width: 6.5rem;
-          height: 6.5rem;
+        .scroll-container::-webkit-scrollbar {
+          display: none;
         }
-        .dashed {
-          background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='2' stroke-dasharray='5%2c10' stroke-dashoffset='7' stroke-linecap='square'/%3e%3c/svg%3e");
+        .scroll-container {
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
         }
-        .grid-8-2 {
-          display: grid;
-          grid-template-columns: repeat(8, 1fr);
-          grid-template-rows: repeat(2, 1fr);
-          gap: 1.5rem;
-        }
-        .icon-size {
-          width: 0.5rem;
-          height: 0.5rem;
-        }
-        .text-subheader {
-          font-size: 3rem;
+        .bw-filter {
+          -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+          filter: grayscale(100%);
         }
 
-        .slider {
-          overflow-x: auto;
+        .desc-text {
+          position: relative;
+          padding-left: 1rem;
           margin-left: 2rem;
         }
-        .slider .flex-container {
-          list-style: none;
-          padding: 0rem;
-          display: inline-flex;
+        .desc-text::before {
+          content: '';
+          position: absolute;
+          width: 5px;
           height: 100%;
+          background-color: #e5e5e5;
+          left: 0;
         }
-        .slider .flex-container .flex-item {
-          width: 100%;
-          height: 90%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: relative;
+        @media only screen and (min-width: 768px) {
+          .desc-text {
+            width: 30rem;
+          }
+          .topic-section {
+            flex: 0 0 10rem;
+          }
         }
-        .slider .flex-container .flex-item.flex-item:not(:last-of-type) {
-          margin-right: 1rem;
-        }
-        .bg-modal {
-          background-color: rgba(10, 10, 10, 0.2);
+
+        @media only screen and (min-width: 1200px) {
+          .desc-text {
+            width: 35rem;
+          }
+          .topic-section {
+            flex: 0 0 15rem;
+          }
         }
       `}</style>
     </Fragment>

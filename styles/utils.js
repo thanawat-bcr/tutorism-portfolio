@@ -23,6 +23,9 @@ export default css`
   .text-header {
     font-size: 4rem;
   }
+  .text-subheader {
+    font-size: 3rem;
+  }
   .text-body {
     font-size: 1.35rem;
   }
@@ -42,6 +45,9 @@ export default css`
   @media screen and (max-width: 768px) {
     .text-header {
       font-size: 3rem;
+    }
+    .text-subheader {
+      font-size: 2rem;
     }
     .text-body {
       font-size: 1rem;
@@ -136,7 +142,7 @@ export default css`
 
   /* Shadow */
   .shadow {
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.15);
   }
 
   /* Display */
