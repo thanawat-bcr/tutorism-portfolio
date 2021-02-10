@@ -35,7 +35,7 @@ const Works = (props) => {
           </div>
           <div style={{ height: '75vh' }} className='flex'>
             <div
-              className='h-full scroll-container flex flex-col items-center shadow'
+              className='h-full scroll-container flex flex-col items-center '
               style={{
                 flex: '0 0 7rem',
                 borderRadius: '20px',
