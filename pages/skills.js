@@ -4,6 +4,7 @@ import General from '../components/layouts/general';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 
+import Header from '../components/template/header';
 import useWindowSize from '../components/size';
 
 const Skills = (props) => {
@@ -66,9 +67,7 @@ const Skills = (props) => {
               size.width > 768 ? 'w-45' : 'w-full'
             }`}
           >
-            <div className='font-bold text-header text-secondary my-4'>
-              My <span className='text-contrast'>Skills</span>
-            </div>
+            <Header head='My' body='Skills'></Header>
             <div
               className={`text-lg font-light ${
                 size.width > 768 ? 'my-4' : 'my-2'

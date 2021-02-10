@@ -53,7 +53,7 @@ const Uppernav = () => {
             <div
               id='menu-set'
               className='flex justify-center items-center fixed'
-              style={{ top: '1.5rem', right: '4rem' }}
+              style={{ top: '1.5rem', right: '4rem', zIndex: '5' }}
             >
               <Link href={routeName.home}>
                 <div className='icon-size pointer'>
@@ -141,7 +141,7 @@ const Uppernav = () => {
         >
           <div
             className='w-sidenav flex flex-col bg-screen justify-center items-center text-body fixed'
-            style={{ top: '4rem', right: '1rem', zIndex: '-1' }}
+            style={{ top: '4rem', right: '1rem', zIndex: '5' }}
           >
             <div
               className='social-size pointer'

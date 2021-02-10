@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import utils from '../styles/utils';
 import General from '../components/layouts/general';
+import Header from '../components/template/header';
 import useWindowSize from '../components/size';
 const AboutMe = (props) => {
   const size = useWindowSize();
@@ -8,9 +9,7 @@ const AboutMe = (props) => {
     <Fragment>
       <General>
         <div className={`${size.width > 768 ? 'w-50 ' : 'w-full'}`}>
-          <div className='font-bold text-header text-secondary'>
-            About <span className='text-contrast'>Me</span>
-          </div>
+          <Header head='About' body='Me'></Header>
           <div
             className={`text-lg font-light my-4 spacing-sm `}
             style={{ textIndent: '3rem', textAlign: 'justify' }}
