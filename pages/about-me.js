@@ -8,10 +8,10 @@ const AboutMe = (props) => {
   return (
     <Fragment>
       <General>
-        <div className={`${size.width > 768 ? 'w-50 ' : 'w-full'}`}>
+        <div className={`w-text`}>
           <Header head='About' body='Me'></Header>
           <div
-            className={`text-lg font-light my-4 spacing-sm `}
+            className={`font-light my-4 spacing-sm `}
             style={{ textIndent: '3rem', textAlign: 'justify' }}
           >
             I'm a{' '}
@@ -30,8 +30,22 @@ const AboutMe = (props) => {
       </General>
       <style jsx>{utils}</style>
       <style jsx>{`
-        .w-50 {
-          width: 50%;
+        .w-text {
+          width: 20rem;
+          font-size: 1rem;
+        }
+
+        @media only screen and (min-width: 768px) {
+          .w-text {
+            width: 40rem;
+            font-size: 1.2rem;
+          }
+        }
+
+        @media only screen and (min-width: 992px) {
+          .w-text {
+            width: 50rem;
+          }
         }
       `}</style>
     </Fragment>
