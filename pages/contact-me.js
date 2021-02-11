@@ -1,58 +1,70 @@
-import { Fragment } from 'react';
-import utils from '../styles/utils';
-import General from '../components/layouts/general';
+import { Fragment, useState } from 'react';
 import dynamic from 'next/dynamic';
 
-const DynamicComponentWithNoSSR = dynamic(() => import('../components/map'), {
-  ssr: false,
-});
+import CSSTransition from 'react-transition-group/CSSTransition';
+
+import utils from '../styles/utils';
+import useWindowSize from '../components/size';
+
+import General from '../components/layouts/general';
+import Header from '../components/template/header';
+
+import Text from '../components/contact/text';
+import Email from '../components/contact/email';
+
+const DynamicComponentWithNoSSR = dynamic(
+  () => import('../components/contact/map'),
+  {
+    ssr: false,
+  }
+);
 
 const ContactMe = (props) => {
+  const [toggleMenu, setToggleMenu] = useState(false);
+  const isMobile = useWindowSize().width < 768;
   return (
     <Fragment>
       <General>
-        <div style={{ width: '35%' }}>
-          <div className='font-bold text-header text-secondary'>
-            Contact <span className='text-contrast'>Me</span>
-          </div>
-          <div
-            className='text-lg font-light my-4'
-            style={{ textIndent: '3rem', textAlign: 'justify' }}
-          >
-            I am interested in freelance opportunities to gain more working
-            experience and improve more working skills, especially the frontend
-            and mobile development projects.
-          </div>
+        <div style={{ width: isMobile ? '100%' : '35%' }}>
+          <Header head='Contact' body='Me'></Header>
+          <Text></Text>
           <div className='w-full flex' style={{ justifyContent: 'flex-end' }}>
-            <a
-              className='send-mail'
-              href='mailto:thanawat.bcr@gmail.com'
-              target='_blank'
-            >
-              Send email
-            </a>
+            <Email></Email>
           </div>
         </div>
-        <div className='fixed map-pos'>
+        <div
+          className={`fixed ${
+            isMobile
+              ? toggleMenu
+                ? 'map-pos-mobile map-slide'
+                : 'map-pos-mobile'
+              : 'map-pos-wide'
+          }`}
+          onClick={() => {
+            setToggleMenu(!toggleMenu);
+          }}
+        >
           <DynamicComponentWithNoSSR />
         </div>
       </General>
       <style jsx>{utils}</style>
       <style jsx>{`
-        .send-mail {
-          text-decoration: none;
-          background-color: #ff88cc;
-          color: #fefefe;
-          font-weight: 600;
-          font-size: 1rem;
-          display: inline-block;
-          padding: 0.5rem 2rem;
-        }
-        .map-pos {
+        .map-pos-wide {
           top: 0;
           right: 0;
           bottom: 0;
           left: 45%;
+        }
+        .map-pos-mobile {
+          top: 90%;
+          bottom: -90%;
+          left: 1rem;
+          right: 1rem;
+          z-index: 100;
+          transition: 300ms;
+        }
+        .map-slide {
+          transform: translateY(-80%);
         }
       `}</style>
     </Fragment>

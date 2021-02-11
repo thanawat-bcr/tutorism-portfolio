@@ -2,7 +2,7 @@ import { Component } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-
+import useWindowSize from '../size';
 class Map extends Component {
   state = {
     viewport: {
@@ -13,7 +13,6 @@ class Map extends Component {
       zoom: 12,
     },
   };
-
   render() {
     return (
       <ReactMapGL
@@ -31,7 +30,7 @@ class Map extends Component {
               margin: '2rem 0.5rem',
             }}
           >
-            <div className='tooltips'>Bangkok, Thailand</div>
+            <div className={` tooltips`}>Bangkok, Thailand</div>
             <FontAwesomeIcon icon={faMapMarkerAlt} color='#ff88cc' />
           </div>
         </Marker>
@@ -43,11 +42,12 @@ class Map extends Component {
           .tooltips {
             background-color: white;
             border-radius: 10px;
-            padding: 0.5rem 2rem;
-            width: 10rem;
+            padding: 0.5rem 1rem;
+            width: 8rem;
             text-align: center;
             position: absolute;
             top: -2.5rem;
+            font-size: 0.8rem;
           }
         `}</style>
       </ReactMapGL>

@@ -198,9 +198,6 @@ const Uppernav = () => {
           height: 2rem;
           padding: 0.5rem;
         }
-        #menu-set {
-          // transform: translateX(120%);
-        }
         .menu-open {
           animation: menu-open 600ms ease-in-out forwards;
         }
