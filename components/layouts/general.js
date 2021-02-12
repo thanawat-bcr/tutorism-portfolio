@@ -9,10 +9,10 @@ const General = (props) => {
   return (
     <Fragment>
       <Header></Header>
-      <div className='w-screen h-screen bg-screen fixed inset-0 z-10'>
+      <div className='w-screen h-screen bg-screen  fixed inset-0 z-10'>
         {isMobile ? <Uppernav></Uppernav> : <Sidenav></Sidenav>}
         <div
-          className={`main-content w-auto flex flex-col ${
+          className={`main-content w-auto flex flex-col bg-contrast ${
             isMobile ? 'm-mobile' : 'm-desktop'
           }`}
         >
@@ -25,8 +25,8 @@ const General = (props) => {
           margin: 2rem;
         }
         .m-mobile {
-          margin-top: 4rem;
-          height: calc(100vh - 128px);
+          margin-top: 0rem;
+          height: calc(100vh - 64px);
         }
         .m-desktop {
           margin-left: 6rem;
