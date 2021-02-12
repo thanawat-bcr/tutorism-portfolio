@@ -4,14 +4,14 @@ import General from '../components/layouts/general';
 import Header from '../components/template/header';
 import useWindowSize from '../components/size';
 const AboutMe = (props) => {
-  const size = useWindowSize();
+  const isMobile = useWindowSize().width < 768;
   return (
     <Fragment>
       <General>
-        <div className={`w-text`}>
+        <div className={`w-text h-full flex flex-col justify-center`}>
           <Header head='About' body='Me'></Header>
           <div
-            className={`font-light my-4 spacing-sm `}
+            className={`font-light spacing-sm text-body`}
             style={{ textIndent: '3rem', textAlign: 'justify' }}
           >
             I'm a{' '}
@@ -31,14 +31,14 @@ const AboutMe = (props) => {
       <style jsx>{utils}</style>
       <style jsx>{`
         .w-text {
+          margin: 0 auto;
           width: 20rem;
-          font-size: 1rem;
         }
 
         @media only screen and (min-width: 768px) {
           .w-text {
             width: 40rem;
-            font-size: 1.2rem;
+            margin: 0;
           }
         }
 
