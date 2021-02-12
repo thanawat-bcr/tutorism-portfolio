@@ -28,7 +28,7 @@ const Works = (props) => {
       <General>
         <div className='h-full flex flex-col' style={{ marginTop: '4rem' }}>
           <Header head='My' body='Works'></Header>
-          <div style={{ flexGrow: '1' }} className='flex my-2'>
+          <div style={{ height: `calc(100% - 124px)` }} className='flex'>
             <Timeline
               works={works}
               workIndex={workIndex}

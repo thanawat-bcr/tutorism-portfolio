@@ -14,12 +14,13 @@ const Timeline = (props) => {
         style={{
           flex: isMobile ? '0 0 100%' : '0 0 7rem',
           borderRadius: '20px',
-          marginLeft: '1rem',
-          marginRight: '4rem',
+          marginLeft: isMobile ? 'auto' : '1rem',
+          marginRight: isMobile ? 'auto' : '4rem',
           paddingTop: '1rem',
-          paddingBottom: '5rem',
-          // overflowY: 'hidden',
-          overflowY: 'auto',
+          // use this when less works
+          overflowY: 'hidden',
+          // use this when more works
+          // overflowY: 'scroll',
         }}
       >
         {props.works.map((work, index) => (
@@ -74,7 +75,10 @@ const Timeline = (props) => {
               className='absolute'
               style={{
                 width: '5px',
+                // use this when less works
                 height: height + 'px',
+                // use this when more works
+                // height: '5rem',
                 backgroundColor: '#e5e5e5',
                 left: '50%',
                 transform: 'translateX(-50%)',
