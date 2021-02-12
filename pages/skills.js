@@ -13,11 +13,12 @@ import Description from '../components/skills/description';
 
 const Skills = (props) => {
   const isMobile = useWindowSize().width < 768;
+  const { height } = useWindowSize();
   const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <Fragment>
       <General>
-        <div className='flex justify-between'>
+        <div className='h-full flex items-center justify-even'>
           <div
             className={`flex flex-col justify-center ${
               isMobile ? 'w-full' : 'w-45'
@@ -30,7 +31,7 @@ const Skills = (props) => {
                 style={{
                   position: 'fixed',
                   left: '50%',
-                  bottom: '3rem',
+                  bottom: '2rem',
                   transform: 'translateX(-50%)',
                   width: '1rem',
                   height: '1rem',
@@ -81,16 +82,16 @@ const Skills = (props) => {
               }`}
               style={{
                 position: 'fixed',
-                top: '100vh',
+                top: `${height}px`,
                 width: '100vw',
-                height: 'calc(90vh - 4rem)',
+                height: `calc(${height}px - 4rem)`,
                 left: '0',
-                padding: '0 1rem',
+                padding: '2rem 1rem',
                 transition: '300ms ease-in-out',
               }}
             >
               <div
-                style={{ position: 'fixed', right: '10vw' }}
+                style={{ position: 'fixed', top: '1rem', right: '2rem' }}
                 className={` pointer `}
                 onClick={() => setToggleMenu(false)}
               >
@@ -146,7 +147,7 @@ const Skills = (props) => {
           width: 45%;
         }
         .skill-slide {
-          transform: translateY(-90vh);
+          transform: translateY(-${height - 64}px);
         }
       `}</style>
     </Fragment>
