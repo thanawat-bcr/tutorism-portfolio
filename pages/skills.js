@@ -30,7 +30,7 @@ const Skills = (props) => {
                 style={{
                   position: 'fixed',
                   left: '50%',
-                  bottom: '10vh',
+                  bottom: '3rem',
                   transform: 'translateX(-50%)',
                   width: '1rem',
                   height: '1rem',
