@@ -17,6 +17,7 @@ const Timeline = (props) => {
           marginLeft: '1rem',
           marginRight: '4rem',
           paddingTop: '1rem',
+          paddingBottom: '5rem',
           // overflowY: 'hidden',
           overflowY: 'auto',
         }}
