@@ -22,6 +22,7 @@ const DynamicComponentWithNoSSR = dynamic(
 const ContactMe = (props) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const isMobile = useWindowSize().width < 768;
+  const { height } = useWindowSize();
   const { width } = useWindowSize();
   return (
     <Fragment>
@@ -37,7 +38,7 @@ const ContactMe = (props) => {
             <Email></Email>
           </div>
         </div>
-        <div
+        {/* <div
           className={`fixed ${
             isMobile
               ? toggleMenu
@@ -45,6 +46,25 @@ const ContactMe = (props) => {
                 : 'map-pos-mobile'
               : 'map-pos-wide'
           }`}
+          onClick={() => {
+            setToggleMenu(!toggleMenu);
+          }}
+        >
+          <DynamicComponentWithNoSSR />
+        </div> */}
+        <div
+          className={`flex flex-col bg-screen  ${
+            toggleMenu ? 'map-slide' : ''
+          }`}
+          style={{
+            position: 'fixed',
+            top: `${height - 64}px`,
+            width: '100vw',
+            height: `calc(${height}px - 4rem)`,
+            left: '0',
+            padding: '1.5rem 1rem',
+            transition: '300ms ease-in-out',
+          }}
           onClick={() => {
             setToggleMenu(!toggleMenu);
           }}
@@ -59,18 +79,17 @@ const ContactMe = (props) => {
           right: 0;
           bottom: 0;
           left: ${width < 1000 ? '60%' : '45%'};
-          // left: 30%;
         }
         .map-pos-mobile {
           top: 90%;
           bottom: -90%;
-          left: 1rem;
-          right: 1rem;
+          left: 0rem;
+          right: 0rem;
           z-index: 100;
           transition: 300ms;
         }
         .map-slide {
-          transform: translateY(-80%);
+          transform: translateY(-${height - 128}px);
         }
         .items-start {
           align-items: flex-start;
