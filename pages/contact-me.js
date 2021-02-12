@@ -33,6 +33,9 @@ const ContactMe = (props) => {
         >
           <Header head='Contact' body='Me'></Header>
           <Text></Text>
+          <div className='w-full flex' style={{ justifyContent: 'flex-end' }}>
+            <Email></Email>
+          </div>
         </div>
         <div
           className={`fixed ${
