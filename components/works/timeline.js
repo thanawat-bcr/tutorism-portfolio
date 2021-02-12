@@ -3,6 +3,7 @@ import utils from '../../styles/utils';
 import useWindowSize from '../size';
 const Timeline = (props) => {
   const isMobile = useWindowSize().width < 768;
+  const { height } = useWindowSize();
 
   return (
     <Fragment>
@@ -28,7 +29,7 @@ const Timeline = (props) => {
               height: '5rem',
               border: '5px solid #E5E5E5',
               borderRadius: '50%',
-              marginBottom: '5rem',
+              marginBottom: isMobile ? '2.5rem' : '5rem',
             }}
             className='relative'
             onClick={() => {
@@ -72,7 +73,7 @@ const Timeline = (props) => {
               className='absolute'
               style={{
                 width: '5px',
-                height: '100vh',
+                height: height + 'px',
                 backgroundColor: '#e5e5e5',
                 left: '50%',
                 transform: 'translateX(-50%)',

@@ -13,6 +13,7 @@ import Topic from '../components/works/topic';
 
 const Works = (props) => {
   const isMobile = useWindowSize().width < 768;
+  const { height } = useWindowSize();
   const imgPath = (path, img) => {
     return `https://cdn.jsdelivr.net/gh/thanawat-bcr/tutorism-portfolio-resources/${path}/${img}.png`;
   };
@@ -25,9 +26,9 @@ const Works = (props) => {
   return (
     <Fragment>
       <General>
-        <div className='flex flex-col justify-even'>
+        <div className='h-full flex flex-col' style={{ marginTop: '4rem' }}>
           <Header head='My' body='Works'></Header>
-          <div style={{ height: isMobile ? 'auto' : '75vh' }} className='flex'>
+          <div style={{ flexGrow: '1' }} className='flex my-2'>
             <Timeline
               works={works}
               workIndex={workIndex}
@@ -43,10 +44,20 @@ const Works = (props) => {
                   <Description work={work()}></Description>
                 </div>
               </>
-            ) : modal ? (
+            ) : (
               <div
-                className='fixed inset-0 bg-screen px-4 flex flex-col justify-center'
-                style={{ top: '4rem', paddingBottom: '10rem' }}
+                className={`flex flex-col bg-screen  ${
+                  modal ? 'work-slide' : ''
+                }`}
+                style={{
+                  position: 'fixed',
+                  top: `${height}px`,
+                  width: '100vw',
+                  height: `calc(${height}px - 4rem)`,
+                  left: '0',
+                  padding: '1.5rem 1rem',
+                  transition: '300ms ease-in-out',
+                }}
               >
                 <div
                   className='absolute top-0 right-0 my-8 mx-8 font-light text-lg pointer'
@@ -64,12 +75,16 @@ const Works = (props) => {
                   <Description work={work()}></Description>
                 </div>
               </div>
-            ) : null}
+            )}
           </div>
         </div>
       </General>
       <style jsx>{utils}</style>
-      <style jsx>{``}</style>
+      <style jsx>{`
+        .work-slide {
+          transform: translateY(-${height - 64}px);
+        }
+      `}</style>
     </Fragment>
   );
 };
