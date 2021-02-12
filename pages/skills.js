@@ -86,7 +86,7 @@ const Skills = (props) => {
                 width: '100vw',
                 height: `calc(${height}px - 4rem)`,
                 left: '0',
-                padding: '2.5rem 1rem',
+                padding: '1.5rem 1rem',
                 transition: '300ms ease-in-out',
               }}
             >
