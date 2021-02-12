@@ -36,7 +36,7 @@ const Uppernav = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <Fragment>
-      <div className='w-screen h-sidenav bg-navbar flex justify-between'>
+      <div className='w-screen h-sidenav bg-navbar flex justify-between fixed top-0 left-0 right-0'>
         <Link href={routeName.home}>
           <div className='sidenav-logo bg-navbar-logo flex justify-center items-center text-body font-black pointer'>
             <div>T</div>
