@@ -86,7 +86,7 @@ const Skills = (props) => {
                 width: '100vw',
                 height: `calc(${height}px - 4rem)`,
                 left: '0',
-                padding: '2rem 1rem',
+                padding: '2.5rem 1rem',
                 transition: '300ms ease-in-out',
               }}
             >
@@ -139,8 +139,8 @@ const Skills = (props) => {
           margin: 1rem 1.5rem;
         }
         .icon-mobile {
-          width: 2rem;
-          height: 2rem;
+          width: 1.5rem;
+          height: 1.5rem;
           margin: 1rem;
         }
         .w-45 {
