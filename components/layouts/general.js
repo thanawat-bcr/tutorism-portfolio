@@ -6,17 +6,19 @@ import utils from '../../styles/utils';
 import useWindowSize from '../size';
 const General = (props) => {
   const isMobile = useWindowSize().width < 768;
+  const { height } = useWindowSize();
   return (
     <Fragment>
       <Header></Header>
       <div className='w-screen h-screen bg-screen  fixed inset-0 z-10'>
         {isMobile ? <Uppernav></Uppernav> : <Sidenav></Sidenav>}
         <div
-          className={`main-content w-auto flex flex-col bg-contrast ${
+          className={`main-content w-auto flex flex-col bg-contrast relative ${
             isMobile ? 'm-mobile' : 'm-desktop'
           }`}
         >
           <main className='h-full'>{props.children}</main>
+          <div className='absolute bottom-0 right-0'>x</div>
         </div>
       </div>
       <style jsx>{utils}</style>
@@ -26,8 +28,9 @@ const General = (props) => {
         }
         .m-mobile {
           margin-top: 0rem;
-          height: calc(100vh - 96px);
+          // height: calc(100vh - 96px);
           // height: calc(100vh - 64px);
+          height: ${height}px;
         }
         .m-desktop {
           margin-left: 6rem;
