@@ -13,12 +13,11 @@ const General = (props) => {
       <div className='w-screen h-screen bg-screen  fixed inset-0 z-10'>
         {isMobile ? <Uppernav></Uppernav> : <Sidenav></Sidenav>}
         <div
-          className={`main-content w-auto flex flex-col bg-contrast relative ${
+          className={`main-content w-auto flex flex-col ${
             isMobile ? 'm-mobile' : 'm-desktop'
           }`}
         >
           <main className='h-full'>{props.children}</main>
-          <div className='absolute bottom-0 right-0'>x</div>
         </div>
       </div>
       <style jsx>{utils}</style>
@@ -27,10 +26,8 @@ const General = (props) => {
           margin: 2rem;
         }
         .m-mobile {
-          margin-top: 0rem;
-          // height: calc(100vh - 96px);
-          // height: calc(100vh - 64px);
-          height: ${height}px;
+          margin-top: 2rem;
+          height: ${height - 32}px;
         }
         .m-desktop {
           margin-left: 6rem;
