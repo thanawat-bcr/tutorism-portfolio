@@ -7,7 +7,9 @@ const Text = (props) => {
   return (
     <Fragment>
       <div
-        className='text-lg font-light my-4'
+        className={`text-lg font-light my-4 w-text w-full ${
+          isMobile ? 'mx-auto' : ''
+        }`}
         style={{ textIndent: '3rem', textAlign: 'justify' }}
       >
         I am interested in freelance opportunities to gain more working

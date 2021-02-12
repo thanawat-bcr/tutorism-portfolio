@@ -22,15 +22,17 @@ const DynamicComponentWithNoSSR = dynamic(
 const ContactMe = (props) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const isMobile = useWindowSize().width < 768;
+  const { width } = useWindowSize();
   return (
     <Fragment>
       <General>
-        <div style={{ width: isMobile ? '100%' : '35%' }}>
+        <div
+          className={`h-full flex flex-col justify-center ${
+            isMobile ? 'mx-auto' : ''
+          } desc-text `}
+        >
           <Header head='Contact' body='Me'></Header>
           <Text></Text>
-          <div className='w-full flex' style={{ justifyContent: 'flex-end' }}>
-            <Email></Email>
-          </div>
         </div>
         <div
           className={`fixed ${
@@ -53,7 +55,8 @@ const ContactMe = (props) => {
           top: 0;
           right: 0;
           bottom: 0;
-          left: 45%;
+          left: ${width < 1000 ? '60%' : '45%'};
+          // left: 30%;
         }
         .map-pos-mobile {
           top: 90%;
@@ -65,6 +68,27 @@ const ContactMe = (props) => {
         }
         .map-slide {
           transform: translateY(-80%);
+        }
+        .items-start {
+          align-items: flex-start;
+        }
+        .desc-text {
+          width: 19rem;
+        }
+        @media only screen and (min-width: 768px) {
+          .desc-text {
+            width: 23rem;
+          }
+        }
+        @media only screen and (min-width: 1200px) {
+          .desc-text {
+            width: 25rem;
+          }
+        }
+        @media only screen and (min-width: 1500px) {
+          .desc-text {
+            width: 35rem;
+          }
         }
       `}</style>
     </Fragment>
