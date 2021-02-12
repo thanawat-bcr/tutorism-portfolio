@@ -26,7 +26,7 @@ const General = (props) => {
         }
         .m-mobile {
           margin-top: 0rem;
-          height: calc(100vh - 126px);
+          height: calc(100vh - 96px);
           // height: calc(100vh - 64px);
         }
         .m-desktop {
