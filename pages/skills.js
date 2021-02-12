@@ -83,6 +83,7 @@ const Skills = (props) => {
                 position: 'fixed',
                 top: '100vh',
                 width: '100vw',
+                height: 'calc(90vh - 4rem)',
                 left: '0',
                 padding: '0 1rem',
                 transition: '300ms ease-in-out',
@@ -104,7 +105,7 @@ const Skills = (props) => {
                   <div className='flex' style={{ flexWrap: 'wrap' }}>
                     {s.icons.map((i, index) => (
                       <div className=' flex flex-col items-center' key={index}>
-                        <div className='icon-size pointer'>
+                        <div className='icon-mobile pointer'>
                           {i.icon ? (
                             <FontAwesomeIcon icon={['fab', i.icon]} />
                           ) : (
@@ -135,6 +136,11 @@ const Skills = (props) => {
           width: 2.125rem;
           height: 2.125rem;
           margin: 1rem 1.5rem;
+        }
+        .icon-mobile {
+          width: 2rem;
+          height: 2rem;
+          margin: 1rem;
         }
         .w-45 {
           width: 45%;
