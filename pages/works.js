@@ -46,7 +46,7 @@ const Works = (props) => {
               </>
             ) : (
               <div
-                className={`flex flex-col bg-screen  ${
+                className={`flex flex-col mx-auto bg-screen  ${
                   modal ? 'work-slide' : ''
                 }`}
                 style={{

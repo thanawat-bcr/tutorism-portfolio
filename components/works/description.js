@@ -1,10 +1,14 @@
 import { Fragment, useEffect } from 'react';
 import utils from '../../styles/utils';
+import useWindowSize from '../size';
 const Description = (props) => {
+  const isMobile = useWindowSize().width < 768;
   return (
     <Fragment>
       <div
-        className='text-md font-light my-8 line-height-sm desc-text mx-4'
+        className={`text-md font-light my-8 line-height-sm desc-text ${
+          isMobile ? 'mx-2' : 'mx-4'
+        }`}
         style={{
           textIndent: '3rem',
           textAlign: 'justify',
@@ -18,7 +22,6 @@ const Description = (props) => {
         .desc-text {
           position: relative;
           padding-left: 1rem;
-          margin-left: 2rem;
         }
         .desc-text::before {
           content: '';

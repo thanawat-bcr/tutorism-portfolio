@@ -10,7 +10,7 @@ const Slider = (props) => {
 
   return (
     <Fragment>
-      <div id='slider'>
+      <div id='slider' style={{ marginBottom: '3rem' }}>
         {props.work.slides.map((slide, index) => (
           <input
             key={index}
@@ -38,7 +38,7 @@ const Slider = (props) => {
                 id={`d${index + 1}`}
                 style={{
                   position: 'absolute',
-                  bottom: '1rem',
+                  bottom: '-1rem',
                   left: '50%',
                   transform: 'translateX(-50%)',
                   textAlign: 'center',
