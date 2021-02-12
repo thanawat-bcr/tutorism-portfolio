@@ -76,7 +76,7 @@ const Skills = (props) => {
             </div>
           ) : (
             <div
-              className={`flex flex-col bg-screen ${
+              className={`flex flex-col bg-screen  ${
                 toggleMenu ? 'skill-slide' : ''
               }`}
               style={{

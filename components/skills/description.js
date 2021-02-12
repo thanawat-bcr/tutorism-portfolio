@@ -6,14 +6,14 @@ const Description = (props) => {
   return (
     <Fragment>
       <div
-        className={`text-lg font-light ${isMobile ? 'my-2' : 'my-4'} `}
+        className={`text-size font-light ${isMobile ? 'my-2' : 'my-4'} `}
         style={{ textIndent: '3rem', textAlign: 'justify' }}
       >
         My main area of expertises are frontend development and mobile
         development.
       </div>
       <div
-        className={`text-lg font-light ${isMobile ? 'my-2' : 'my-4'} `}
+        className={`text-size font-light ${isMobile ? 'my-2' : 'my-4'} `}
         style={{ textIndent: '3rem', textAlign: 'justify' }}
       >
         {' '}
@@ -23,14 +23,24 @@ const Description = (props) => {
         system.
       </div>
       <div
-        className={`text-lg font-light ${isMobile ? 'my-2' : 'my-4'} `}
+        className={`text-size font-light ${isMobile ? 'my-2' : 'my-4'} `}
         style={{ textIndent: '3rem', textAlign: 'justify' }}
       >
         {' '}
         You can visit my Github for more details and feel free to contact me.
       </div>
       <style jsx>{utils}</style>
-      <style jsx>{``}</style>
+      <style jsx>{`
+        .text-size {
+          font-size: 1rem;
+        }
+
+        @media only screen and (min-width: 768px) {
+          .text-size {
+            font-size: 1.2rem;
+          }
+        }
+      `}</style>
     </Fragment>
   );
 };
