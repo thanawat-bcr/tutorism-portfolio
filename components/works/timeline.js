@@ -17,8 +17,8 @@ const Timeline = (props) => {
           marginLeft: '1rem',
           marginRight: '4rem',
           paddingTop: '1rem',
-          overflowY: 'hidden',
-          // overflowY: 'auto',
+          // overflowY: 'hidden',
+          overflowY: 'auto',
         }}
       >
         {props.works.map((work, index) => (
