@@ -90,13 +90,15 @@ const Skills = (props) => {
                 transition: '300ms ease-in-out',
               }}
             >
-              <div
-                style={{ position: 'fixed', top: '1rem', right: '2rem' }}
-                className={` pointer `}
-                onClick={() => setToggleMenu(false)}
-              >
-                x
-              </div>
+              {toggleMenu ? (
+                <div
+                  style={{ position: 'fixed', top: '1rem', right: '2rem' }}
+                  className={` pointer `}
+                  onClick={() => setToggleMenu(false)}
+                >
+                  x
+                </div>
+              ) : null}
               {skills.map((s, i) => (
                 <div className='my-4' key={i}>
                   <div className='text-body font-thick text-secondary'>
@@ -119,7 +121,7 @@ const Skills = (props) => {
                           )}
                         </div>
 
-                        <div className='text-sm font-thin text-secondary'>
+                        <div className='text-xs font-thin text-secondary'>
                           {i.title}
                         </div>
                       </div>
