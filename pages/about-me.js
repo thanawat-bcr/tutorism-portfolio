@@ -5,6 +5,7 @@ import Header from '../components/template/header';
 import useWindowSize from '../components/size';
 const AboutMe = (props) => {
   const isMobile = useWindowSize().width < 768;
+  const { height } = useWindowSize();
   return (
     <Fragment>
       <General>
@@ -14,8 +15,11 @@ const AboutMe = (props) => {
             className={`font-light spacing-sm text-body`}
             style={{ textIndent: '3rem', textAlign: 'justify' }}
           >
+            {height}
             I'm a{' '}
-            <span className='font-bold text-contrast'>frontend developer</span>{' '}
+            <span className='font-bold text-contrast'>
+              frontend developer
+            </span>{' '}
             and{' '}
             <span className='font-bold text-contrast'>mobile developer</span>{' '}
             with a passion for UX and UI in application development. For web
