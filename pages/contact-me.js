@@ -38,39 +38,37 @@ const ContactMe = (props) => {
             <Email></Email>
           </div>
         </div>
-        {/* <div
-          className={`fixed ${
-            isMobile
-              ? toggleMenu
-                ? 'map-pos-mobile map-slide'
-                : 'map-pos-mobile'
-              : 'map-pos-wide'
-          }`}
-          onClick={() => {
-            setToggleMenu(!toggleMenu);
-          }}
-        >
-          <DynamicComponentWithNoSSR />
-        </div> */}
-        <div
-          className={`flex flex-col bg-screen  ${
-            toggleMenu ? 'map-slide' : ''
-          }`}
-          style={{
-            position: 'fixed',
-            top: `${height - 64}px`,
-            width: '100vw',
-            height: `calc(${height}px - 4rem)`,
-            left: '0',
-            padding: '1.5rem 1rem',
-            transition: '300ms ease-in-out',
-          }}
-          onClick={() => {
-            setToggleMenu(!toggleMenu);
-          }}
-        >
-          <DynamicComponentWithNoSSR />
-        </div>
+        {isMobile ? (
+          <div
+            className={`flex flex-col bg-screen  ${
+              toggleMenu ? 'map-slide' : ''
+            }`}
+            style={{
+              position: 'fixed',
+              top: `${height - 64}px`,
+              // width: '80vw',
+              width: '100%',
+              height: `calc(${height}px - 4rem)`,
+              left: '0',
+              padding: '1.5rem 1rem',
+              transition: '300ms ease-in-out',
+            }}
+            onClick={() => {
+              setToggleMenu(!toggleMenu);
+            }}
+          >
+            <DynamicComponentWithNoSSR />
+          </div>
+        ) : (
+          <div
+            className={`fixed map-pos-wide`}
+            onClick={() => {
+              setToggleMenu(!toggleMenu);
+            }}
+          >
+            <DynamicComponentWithNoSSR />
+          </div>
+        )}
       </General>
       <style jsx>{utils}</style>
       <style jsx>{`
