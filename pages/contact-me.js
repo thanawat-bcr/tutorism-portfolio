@@ -47,10 +47,13 @@ const ContactMe = (props) => {
               position: 'fixed',
               top: `${height - 64}px`,
               // width: '80vw',
-              width: '100%',
+              // width: '100%',
               height: `calc(${height}px - 4rem)`,
-              left: '0',
-              padding: '1.5rem 1rem',
+              // left: '0',
+              // padding: '1.5rem 1rem',
+              left: '10px',
+              right: '10px',
+              paddingTop: '1rem',
               transition: '300ms ease-in-out',
             }}
             onClick={() => {
